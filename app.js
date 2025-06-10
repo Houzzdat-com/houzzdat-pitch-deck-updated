@@ -1,7 +1,7 @@
 class HouzzdatPresentation {
     constructor() {
         this.currentSlide = 1;
-        this.totalSlides = 19;
+        this.totalSlides = 21;
         this.slides = document.querySelectorAll('.slide');
         this.prevBtn = document.getElementById('prevBtn');
         this.nextBtn = document.getElementById('nextBtn');
