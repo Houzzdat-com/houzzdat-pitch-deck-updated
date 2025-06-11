@@ -1385,6 +1385,19 @@ h3 {
   }
 }
 
+.timer {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    margin: 0 1rem;
+    min-width: 80px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
   . h i g h l i g h t - c e m e n t   {   b o r d e r :   2 p x   s o l i d   v a r ( - - c o l o r - p r i m a r y ) ;   b o x - s h a d o w :   v a r ( - - s h a d o w - s m ) ;   } 
  
  

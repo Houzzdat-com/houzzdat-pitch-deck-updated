@@ -1,7 +1,7 @@
 class HouzzdatPresentation {
     constructor() {
         this.currentSlide = 1;
-        this.totalSlides = 21;
+        this.totalSlides = 20;
         this.slides = document.querySelectorAll('.slide');
         this.prevBtn = document.getElementById('prevBtn');
         this.nextBtn = document.getElementById('nextBtn');
@@ -9,6 +9,9 @@ class HouzzdatPresentation {
         this.totalSlidesElement = document.getElementById('totalSlides');
         this.indicatorsContainer = document.getElementById('indicators');
         this.slidesWrapper = document.getElementById('slidesWrapper');
+        this.timerElement = document.getElementById('presentationTimer');
+        this.startTime = Date.now();
+        this.timerInterval = null;
         
         this.init();
     }
@@ -19,6 +22,7 @@ class HouzzdatPresentation {
         this.updateSlideCounter();
         this.updateNavigationButtons();
         this.updateIndicators();
+        this.startTimer();
         
         // Set initial total slides
         this.totalSlidesElement.textContent = this.totalSlides;
@@ -272,6 +276,22 @@ class HouzzdatPresentation {
     // Method to check if presentation is at end
     isAtEnd() {
         return this.currentSlide === this.totalSlides;
+    }
+
+    startTimer() {
+        this.timerInterval = setInterval(() => {
+            const elapsedTime = Date.now() - this.startTime;
+            const minutes = Math.floor(elapsedTime / 60000);
+            const seconds = Math.floor((elapsedTime % 60000) / 1000);
+            this.timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }, 1000);
+    }
+
+    stopTimer() {
+        if (this.timerInterval) {
+            clearInterval(this.timerInterval);
+            this.timerInterval = null;
+        }
     }
 }
 
